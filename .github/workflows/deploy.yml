@@ -26,8 +26,8 @@ jobs:
     needs: deploy-dev 
     steps:
       - run: |
-          echo $ENVIRONMENTSECRET
-          echo $DEPLOYMENT
+          echo ${{ secrets.ENVIRONMENTSECRET }}
+          echo ${{ vars.DEPLOYMENT }}
         name: deploy
         # ...deployment-specific steps
 
@@ -37,8 +37,8 @@ jobs:
     needs: deploy-test
     steps:
       - run: |
-          echo $ENVIRONMENTSECRET
-          echo $DEPLOYMENT
+          echo ${{ secrets.ENVIRONMENTSECRET }}
+          echo ${{ vars.DEPLOYMENT }}
         name: deploy
         # ...deployment-specific steps
 
