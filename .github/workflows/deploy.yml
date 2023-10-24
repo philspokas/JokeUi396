@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-    DeploymentValue: ${{ vars.DEPLOYMENT }}
+    deployment-value: "test deploymnet value"
 
 jobs:
 
@@ -19,9 +19,9 @@ jobs:
       - run: |
           printenv
           echo "Secret:"  
-          echo ${{ secrets.ENVIRONMENTSECRET }}
+          echo '${{ secrets.ENVIRONMENTSECRET }}'
           echo "Variable:"  
-          echo "$DeploymentValue"
+          echo 'env var ${{ var.deployment-value }}'
         name: deploy
         # ...deployment-specific steps
 
