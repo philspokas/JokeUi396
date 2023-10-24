@@ -13,8 +13,9 @@ jobs:
     environment: dev
     steps:
       - run: |
+          printenv
           echo $ENVIRONMENTSECRET
-          echo $DEPLOYMENT
+          echo ${{ vars.DEPLOYMENT }}
         name: deploy
         # ...deployment-specific steps
 
@@ -34,7 +35,7 @@ jobs:
     environment: prod
     needs: deploy-test
     steps:
-      - run: 
+      - run: |
           echo $ENVIRONMENTSECRET
           echo $DEPLOYMENT
         name: deploy
