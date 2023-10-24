@@ -18,7 +18,7 @@ jobs:
     steps:
       - run: |
           printenv
-          echo "Secret:"  
+          echo "Secrets:"  
           echo '${{ secrets.ENVIRONMENTSECRET }}'
           echo "Variable:"  
           echo 'env var ${{ var.deployment-value }}'
