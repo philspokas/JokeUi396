@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
-      - run: echo "deploy to prod"
+      - run: echo $ENVIRONMENTSECRET
         name: deploy
         # ...deployment-specific steps
 
@@ -21,7 +21,7 @@ jobs:
     environment: test
     needs: deploy-dev 
     steps:
-      - run: echo "deploy to prod"
+      - run: echo $ENVIRONMENTSECRET
         name: deploy
         # ...deployment-specific steps
 
@@ -30,7 +30,7 @@ jobs:
     environment: prod
     needs: deploy-test
     steps:
-      - run: echo "deploy to prod"
+      - run: echo $ENVIRONMENTSECRET
         name: deploy
         # ...deployment-specific steps
 
