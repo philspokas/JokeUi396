@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
-      - run: echo $ENVIRONMENTSECRET
+      - run: |
+          echo $ENVIRONMENTSECRET
+          echo $DEPLOYMENT
         name: deploy
         # ...deployment-specific steps
 
@@ -21,7 +23,9 @@ jobs:
     environment: test
     needs: deploy-dev 
     steps:
-      - run: echo $ENVIRONMENTSECRET
+      - run: |
+          echo $ENVIRONMENTSECRET
+          echo $DEPLOYMENT
         name: deploy
         # ...deployment-specific steps
 
@@ -30,7 +34,9 @@ jobs:
     environment: prod
     needs: deploy-test
     steps:
-      - run: echo $ENVIRONMENTSECRET
+      - run: 
+          echo $ENVIRONMENTSECRET
+          echo $DEPLOYMENT
         name: deploy
         # ...deployment-specific steps
 
