@@ -14,8 +14,9 @@ jobs:
     environment: dev
     steps:
       - run: |
-          printenv
+          echo "Secret:"  
           echo ${{ secrets.ENVIRONMENTSECRET }}
+          echo "Variable:"  
           echo ${{ vars.DEPLOYMENT }}
         name: deploy
         # ...deployment-specific steps
