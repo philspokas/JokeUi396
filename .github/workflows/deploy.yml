@@ -1,0 +1,16 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - run: echo "deploy to prod"
+        name: deploy
+        # ...deployment-specific steps
