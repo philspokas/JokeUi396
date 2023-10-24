@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - dev*
   workflow_dispatch:
 
 jobs:
@@ -13,8 +14,10 @@ jobs:
     environment: dev
     steps:
       - run: |
-          echo $ENVIRONMENTSECRET
-          echo $DEPLOYMENT
+          echo "Secret:"  
+          echo ${{ secrets.ENVIRONMENTSECRET }}
+          echo "Variable:"  
+          echo ${{ vars.DEPLOYMENT }}
         name: deploy
         # ...deployment-specific steps
 
@@ -24,8 +27,8 @@ jobs:
     needs: deploy-dev 
     steps:
       - run: |
-          echo $ENVIRONMENTSECRET
-          echo $DEPLOYMENT
+          echo ${{ secrets.ENVIRONMENTSECRET }}
+          echo ${{ vars.DEPLOYMENT }}
         name: deploy
         # ...deployment-specific steps
 
@@ -34,9 +37,9 @@ jobs:
     environment: prod
     needs: deploy-test
     steps:
-      - run: 
-          echo $ENVIRONMENTSECRET
-          echo $DEPLOYMENT
+      - run: |
+          echo ${{ secrets.ENVIRONMENTSECRET }}
+          echo ${{ vars.DEPLOYMENT }}
         name: deploy
         # ...deployment-specific steps
 
