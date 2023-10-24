@@ -17,6 +17,7 @@ jobs:
     environment: dev
     steps:
       - run: |
+          printenv
           echo "Secret:"  
           echo ${{ secrets.ENVIRONMENTSECRET }}
           echo "Variable:"  
