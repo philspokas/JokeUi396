@@ -19,7 +19,7 @@ jobs:
   deploy-test:
     runs-on: ubuntu-latest
     environment: test
-    depends-on: dev
+    needs: deploy-dev 
     steps:
       - run: echo "deploy to prod"
         name: deploy
@@ -28,7 +28,7 @@ jobs:
   deploy-prod:
     runs-on: ubuntu-latest
     environment: prod
-    depends-on: test
+    needs: deploy-test
     steps:
       - run: echo "deploy to prod"
         name: deploy
