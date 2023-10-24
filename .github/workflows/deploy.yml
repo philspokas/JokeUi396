@@ -21,7 +21,7 @@ jobs:
           echo "Secrets:"  
           echo '${{ secrets.ENVIRONMENTSECRET }}'
           echo "Variable:"  
-          echo 'env var ${{ var.deployment-value }}'
+          echo 'env var ${{ vars.deployment-value }}'
         name: deploy
         # ...deployment-specific steps
 
